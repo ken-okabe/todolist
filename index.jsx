@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const TodoElement = () => {
-    const ClockElement = () => __Element(__
+    const ClockElement = __Element(__
       .intervalSeq(Immutable.Range(), 100)
       .__(() => (<div>{moment().format('MMMM Do YYYY, h:mm:ss a')}</div>)));
     const __items = __(true);
@@ -18,12 +18,12 @@
         <button onClick = {onClick}>{'NewToDo#' + (__items.length + 1)}</button></div>));
       __.log.__(() => (__value.t = ""));
       __.log.t = "started!";
-      return (<div>{__Element(__seqEl)}</div>);
+      return __Element(__seqEl);
     };
     return (<div><h2>ToDo</h2>
-      {ClockElement()}<p/>
+      {ClockElement}<p/>
       {ListElement}
       {InputElement()}</div>);
   };
-  const mount = ReactDOM.render(TodoElement(), document.getElementById('container'));
+  const mount = ReactDOM.render(TodoElement(), document.getElementById('todo'));
 })();
